@@ -1,0 +1,17 @@
+USE [master]
+GO
+CREATE DATABASE [TaskManager]
+GO
+
+CREATE TABLE [dbo].[Tareas](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[Titulo] [nvarchar](50) NOT NULL,
+	[Descripcion] [nvarchar](50) NULL,
+	[FechaCreacion] [datetime] NOT NULL,
+	[Estado] [bit] NOT NULL,
+ CONSTRAINT [PK_Tareas] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
