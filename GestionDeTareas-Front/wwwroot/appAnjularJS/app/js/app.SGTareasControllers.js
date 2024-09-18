@@ -85,6 +85,7 @@
     $scope.showModal = function (_tarea=null) {
         $('#mPostPutTarea').modal({ backdrop: 'static', keyboard: false });
         $('#mPostPutTarea').modal('toggle');
+        reiniciarValidity();
         $scope.tarea = {};
         $scope.tarea.Id = 0;
         if (_tarea != null) {
