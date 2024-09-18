@@ -1,0 +1,89 @@
+﻿<!DOCTYPE html>
+<html ng-app="appTareas">
+<head>
+    <title>Task Manager</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="../js/app.tareas.js"></script>
+    <script src="../js/app.tareasControllers.js"></script>
+    <style>
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgb(0,0,0);
+            background-color: rgba(0,0,0,0.4);
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+            .close:hover,
+            .close:focus {
+                color: black;
+                text-decoration: none;
+                cursor: pointer;
+            }
+    </style>
+</head>
+<body ng-controller="TareasController">
+    <button ng-click="showModal()">Mostrar Modal</button>
+    <div class="modal" ng-show="modalVisible">
+        <div class="modal-content">
+            <span class="close" ng-click="hideModal()">&times;</span>
+            <h2>Este es un Modal</h2>
+            <p>Contenido del modal...</p>
+        </div>
+    </div>
+    <h1>Lista de Tareas</h1>
+    <ul>
+        <li ng-repeat="tarea in tareas.Datos">
+            {{tarea.Titulo}} - {{tarea.Descripcion}}
+            <button ng-click="deleteTarea(tarea.Id)">Eliminar</button>
+        </li>
+    </ul>
+    <h2>Agregar Tarea</h2>
+    <form ng-submit="PostTarea()">
+        <input type="text" ng-model="tarea.Titulo" placeholder="Título" required>
+        <input type="text" ng-model="tarea.Descripcion" placeholder="Descripción">
+        <button type="submit">Agregar</button>
+    </form>
+    <h2>Mi Tabla en AngularJS</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Titulo</th>
+                <th>Descripcion</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="tarea in tareas.Datos">
+                <td>{{tarea.Id}}</td>
+                <td>{{tarea.Titulo}}</td>
+                <td>{{tarea.Descripcion}}</td>
+                <td>
+                    <button ng-class="btn btnActionsT" ng-click="deleteTarea(tarea.Id)">Eliminar</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

@@ -1,0 +1,113 @@
+﻿.montserrat-bold-white-17px {
+    color: var(--white);
+    font-family: var(--font-family-montserrat);
+    font-size: var(--font-size-s);
+    font-style: normal;
+    font-weight: 700;
+    margin-top: 1rem;
+}
+.montserrat-bold-tuatara-17px {
+    color: var(--tuatara);
+    font-family: var(--font-family-montserrat);
+    font-size: var(--font-size-s);
+    font-style: normal;
+    font-weight: 700;
+}
+.montserrat-bold-tuatara-20px {
+    color: var(--tuatara);
+    font-family: var(--font-family-montserrat);
+    font-size: var(--font-size-mm);
+    font-style: normal;
+    font-weight: 700;
+}
+
+.montserrat-bold-tuatara-25px {
+    color: var(--tuatara);
+    font-family: var(--font-family-montserrat);
+    font-size: var(--font-size-m);
+    font-style: normal;
+    font-weight: 700;
+}
+
+.montserrat-light-gravel-25px {
+    color: var(--gravel);
+    font-family: var(--font-family-montserrat);
+    font-size: var(--font-size-m);
+    font-style: normal;
+    font-weight: 300;
+}
+
+.nexa-bold-tuatara-80px {
+    color: var(--tuatara);
+    font-family: var(--font-family-nexabold);
+    font-size: var(--font-size-l2);
+    font-style: normal;
+    font-weight: 700;
+}
+.nexa-bold-tuatara-40px {
+    color: var(--tuatara);
+    font-family: var(--font-family-nexabold);
+    font-size: var(--font-size-l1);
+    font-style: normal;
+    font-weight: 700;
+}
+.poppins-normal-stack-17px {
+    color: var(--stack);
+    font-family: var(--font-family-poppins);
+    font-size: var(--font-size-s);
+    font-style: italic;
+    font-weight: 400;
+    border-radius: 2rem;
+    margin-top: .2rem;
+    padding: .3rem;
+    border: 0.13rem solid rgb(0 0 0 / 51%);
+}
+
+/* ESTILOS PERSONALISADOS */
+.poppins-normal-stack-15px {
+    color: var(--stack);
+    font-family: var(--font-family-poppins);
+    font-size: var(--font-size-ss);
+    font-style: italic;
+    font-weight: 400;
+    border-radius: 2rem;
+    margin-top: .2rem;
+    padding: .6rem;
+}
+.poppins-normal-stack-14px {
+    color: var(--stack);
+    font-family: var(--font-family-poppins);
+    font-size: var(--font-size-xs);
+    font-style: italic;
+    font-weight: 400;
+    border-radius: 2rem;
+    margin-top: .2rem;
+    padding: .6rem;
+}
+
+.nexabold-bold-white-12px {
+    /*color: var(--white);*/
+    font-family: var(--font-family-nexabold);
+    font-size: var(--font-size-s);
+    font-style: normal;
+    font-weight: 700;
+    margin-top: 1rem;
+    color: #8c8c8c;
+}
+
+.montserrat-bold-stack-17px {
+    color: var(--stack);
+    font-family: var(--font-family-nexabold);
+    font-size: var(--font-size-s);
+    font-style: normal;
+    font-weight: 700;
+    margin-top: .4rem;
+}
+.montserrat-bold-17px {
+    color: var(--udem-black);
+    font-family: var(--font-family-nexabold);
+    font-size: var(--font-size-s);
+    font-style: normal;
+    font-weight: 700;
+    margin-top: .4rem;
+}

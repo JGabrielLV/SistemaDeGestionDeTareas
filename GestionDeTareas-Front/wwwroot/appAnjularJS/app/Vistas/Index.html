@@ -1,0 +1,234 @@
+﻿<!DOCTYPE html>
+<html ng-app="appSGTareas">
+<head>
+    <meta charset="UTF-8">
+    <title>Sistema de Gestión de Tareas</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="../js/app.SGTareas.js"></script>
+    <script src="../js/app.SGTareasControllers.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="../../../select2-4.1.0/css/select2.min.css">
+    <link href="../../../datatables/css/dataTables.bootstrap.css" rel="stylesheet" />
+    <link href="../../../datatables/css/dataTables.jqueryui.css" rel="stylesheet" />
+    <link href="../../../datatables/css/dataTables.responsive.css" rel="stylesheet" />
+    <link href="../../../jquery-3.4.1/css/jquery.dataTables.min.css" rel="stylesheet" />
+    <link href="../../../bootstrap5_0_2/css/bootstrap.css" rel="stylesheet" />
+
+    <script src="../../../jquery-3.4.1/js/jquery-3.4.1.min.js"></script>
+    <script src="../../../bootstrap5_0_2/js/bootstrap.bundle.js"></script>
+    <script src="../../../bootstrap5_0_2/js/bootstrap.js"></script>
+    <script src="../../../bootstrap5_0_2/js/bootstrap.min.js"></script>
+    <script src="../../../jquery-3.4.1/js/jquery-3.4.1.js"></script>
+    <script src="../../../js/modernizr-2.8.3.js"></script>
+    <script src="../../../js/Home.js"></script>
+    <script src="../../../select2-4.1.0/js/select2.full.min.js"></script>
+
+
+    <script src="../../../jquery-3.4.1/js/jquery.dataTables.min.js"></script>
+    <script src="../../../datatables/js/dataTables.bootstrap.min.js"></script>
+    <script src="../../../datatables/js/dataTables.responsive.js"></script>
+    <script src="../../../bootstrap5_0_2/js/bootstrap.bundle.min.js"></script>
+    <link href="../../../css/estilosHome.css" rel="stylesheet" type="text/css" />
+    <link href="../../../css/estilosFont.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    
+</head>
+<body ng-controller="SGTareasController">
+    <div class="panel-body" style="min-height: 84.7%; background-color: #ebeef5; margin: 2rem 3rem; border-radius: 2rem; padding: 1rem ; ">
+        <div class="container-xxl wrap-form" style="max-width: 100%; margin-bottom: 1%;">
+            <div class="row" style="width: 100%; ">
+                <h5 class="title nexa-bold-tuatara-80px">
+                    <span class="nexa-bold-tuatara-80px" style="font-size: 40px;">Sistema de Gestión de Tareas</span>
+                </h5>
+            </div>
+            <hr style="border-top: 0.13rem solid rgb(0 0 0 / 51%); margin: 1rem 0rem 0.5rem 0rem">
+            <hr style="border-top: 0.13rem solid rgb(0 0 0 / 51%); margin: 0rem 0rem 1rem 0rem">
+            <br />
+            <div class="row" style="">
+                <div class="col-xxl-9 col-xl-9 col-lg-9 col-md-9 col-sm-9"></div>
+                <div class="col-xxl-2 col-xl-2 col-lg-2 col-md-2 col-sm-2">
+                    <button id="btnAddSGT" ng-click="showModal()" class="btn btn-lg btnActionsYellow ">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" style="fill: #333333; margin-bottom: 0.2rem">
+                            <path d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z" />
+                        </svg>
+                        Agregar
+                    </button>
+                </div>
+                <div class="col-xxl-1 col-xl-1 col-lg-1 col-md-1 col-sm-1"></div>
+            </div>
+            <div class="row wrap-form nexabold-bold-white-12px" style="width: 100%; height: 100%; min-width:10%; margin-top:1rem;">
+                <div style=" display:flex; flex-direction: row; flex-wrap: wrap; justify-content: center; align-content: center">
+                    <table class="table  dt-responsive table-hover" id="tblLTareas" style="border-radius: 2rem; border: 0px solid #e9ecef;">
+                        <thead>
+                            <tr style=" background-color: transparent; color: white;" class="nexabold-bold-white-12px ">
+                                <th style="vertical-align: middle; border-top-left-radius: 2rem; border-bottom-left-radius: 2rem;background-color: #333333;" width="80">ID</th>
+                                <th style=" vertical-align: middle;background-color: #333333;" width="100">Titulo</th>
+                                <th style=" vertical-align: middle;background-color: #333333;" width="100">Descripción</th>
+                                <th style=" vertical-align: middle;background-color: #333333;" width="100">Estado</th>
+                                <th style=" vertical-align: middle; border-top-right-radius: 2rem; border-bottom-right-radius: 2rem;background-color: #333333;" width="auto">Fecha Creación</th>
+                                <th style="vertical-align: middle; margin-right: -50px; background-color: #ebeef5; border-bottom: 0px; background-image: none; min-width:80px; " width="250"></th>
+                            </tr>
+                        </thead>
+                        <tbody id="tbodyLTareas" >
+                            <tr class="nexabold-bold-white-12px" ng-show="tbodyLTareasB" ng-repeat="tarea in tareas.Datos">
+                                <td class="ColumnaInicio">{{tarea.Id}}</td>
+                                <td class="ColumnaMedio">{{tarea.Titulo}}</td>
+                                <td class="ColumnaMedio">{{tarea.Descripcion}}</td>
+                                <td class="ColumnaMedio">
+                                    <svg ng-show="tarea.Estado" xmlns="http://www.w3.org/2000/svg" height="1.4rem" viewBox="0 0 512 512" style="fill: green;">
+                                        <path d="M256 48a208 208 0 1 1 0 416 208 208 0 1 1 0-416zm0 464A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0l-111 111-47-47c-9.4-9.4-24.6-9.4-33.9 0s-9.4 24.6 0 33.9l64 64c9.4 9.4 24.6 9.4 33.9 0L369 209z" />
+                                    </svg>
+                                    <svg ng-show="!tarea.Estado" xmlns="http://www.w3.org/2000/svg" height="1.4rem" viewBox="0 0 512 512" style="fill: red;">
+                                        <path d = "M256 48a208 208 0 1 1 0 416 208 208 0 1 1 0-416zm0 464A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM175 175c-9.4 9.4-9.4 24.6 0 33.9l47 47-47 47c-9.4 9.4-9.4 24.6 0 33.9s24.6 9.4 33.9 0l47-47 47 47c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-47-47 47-47c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0l-47 47-47-47c-9.4-9.4-24.6-9.4-33.9 0z" /> 
+                                    </svg>                                    
+                                </td>
+                                <td class="ColumnaFinal">{{tarea.FechaCreacion}}</td>
+                                <td style="border-radius: 3rem; background-color :#ebeef5; text-align: center; vertical-align: middle">
+                                    <button class="btn btnActionsT" style="margin: 0; width: auto;" title="Actualizar" ng-click="showModal(tarea)">
+                                        <i class="bi bi-pencil-fill" style=" margin-bottom: 0.2rem"></i>
+                                    </button>
+                                    <button class="btn btnActionsT" style="margin: 0; width: auto;" title="Eliminar" ng-click="DeleteTarea(tarea.Id)">
+                                        <i class="bi bi-trash-fill" style=" margin-bottom: 0.2rem"></i>
+                                    </button>
+                                </td>
+
+
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+    <!-- MODAL AGREGAR/ACTUALIZAR TAREA -->
+    <div z-index="1" class="modal fade modal-md" id="mPostPutTarea" data-dismiss="modal" data-backdrop="static" data-keyboard="false" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document" style=" max-width: 50rem;">
+            <div class="modal-content" style="border-radius: 10px;">
+                <div class="modal-body" style="background-color: #ebeef5; border-radius: 15px">
+                    <div class="col-lg-12  " style="border-bottom: 3px solid #e9ecef;">
+                        <label style=" font-size:24px; margin-bottom:10px;" class="montserrat-bold-stack-17px">
+                            Agregar/Actualizar tarea
+                        </label>
+                    </div>
+                    <hr style="border-top: 0.13rem solid rgb(0 0 0 / 51%); margin: 0.5rem 0rem 0.5rem 0rem" />
+                    <hr style="border-top: 0.13rem solid rgb(0 0 0 / 51%); margin: 0rem 0rem .5rem 0rem" />
+                    <div class="row wrap-form">
+                        <div class="col-md-12 col-sm-12 ">
+                            <form ng-submit="PostPutTarea()" method="post" name="formPostPutTarea">
+                                <div class="row wrap-form">
+                                    <input type="hidden" ng-model="tarea.Id" value="0" />
+                                    <div class="form-group col-sm-5 montserrat-bold-stack-17px ">
+                                        <label class="montserrat-bold-stack-17px" style="padding-left: 0.7rem">
+                                            Titulo:
+                                        </label>
+                                        <input type="text" name="mTituloSGT" id="txt_mTituloSGT" ng-model="tarea.Titulo" required
+                                               class="form-control poppins-normal-stack-15px" style="width: 100%; padding: .5rem; "
+                                               placeholder="Ingrese titulo"
+                                               oninvalid="setCustomValidity('Ingrese titulo')"
+                                               onchange="try{setCustomValidity('')}catch(e){}" />
+                                        <span data-for="mTituloSGT" class="error"></span>
+                                    </div>
+                                    <div class="form-group col-sm-5 montserrat-bold-stack-17px ">
+                                        <label class="montserrat-bold-stack-17px" style="padding-left: 0.7rem">
+                                            Descripción:
+                                        </label>
+                                        <textarea type="text" name="mDescripcionSGT" id="txt_mDescripcionSGT" ng-model="tarea.Descripcion" required
+                                               min="1" class="form-control poppins-normal-stack-15px" style="width: 100%; padding: .5rem; height: 2.5rem; "
+                                               placeholder="Ingrese Descripción"
+                                               oninvalid="setCustomValidity('Ingrese Descripción')"
+                                               onchange="try{setCustomValidity('')}catch(e){}" ></textarea>
+                                        <span data-for="mDescripcionSGT" class="error"></span>
+                                    </div>
+                                    <div class="form-group col-sm-2 montserrat-bold-stack-17px " style="width:auto;">
+                                        <label class="chkStyle1" style="margin-bottom: 0.4rem; ">
+                                            <label class="montserrat-bold-stack-17px" style="padding-left: 0.7rem">
+                                                Estado:
+                                            </label>
+                                            <br />
+                                            <input name="chk_EstadoSGT" type="checkbox" id="chk_EstadoSGT" ng-model="tarea.Estado" />
+                                            <span style="margin-left:1.5rem;">
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="chk-Off1" height="1.4rem" viewBox="0 0 512 512" style="fill: red;" id="btnInActive">
+                                                    <path d="M256 48a208 208 0 1 1 0 416 208 208 0 1 1 0-416zm0 464A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM175 175c-9.4 9.4-9.4 24.6 0 33.9l47 47-47 47c-9.4 9.4-9.4 24.6 0 33.9s24.6 9.4 33.9 0l47-47 47 47c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-47-47 47-47c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0l-47 47-47-47c-9.4-9.4-24.6-9.4-33.9 0z" />
+                                                </svg>
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="chk-On1" height="1.4rem" viewBox="0 0 512 512" style="fill: green;">
+                                                    <path d="M256 48a208 208 0 1 1 0 416 208 208 0 1 1 0-416zm0 464A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0l-111 111-47-47c-9.4-9.4-24.6-9.4-33.9 0s-9.4 24.6 0 33.9l64 64c9.4 9.4 24.6 9.4 33.9 0L369 209z" />
+                                                </svg>
+                                            </span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <br />
+                                <div class="modal-footer">
+                                    <div class="row" style="width:100%;">
+                                        <div class="form-group col-sm-3 "></div>
+                                        <div class="form-group col-sm-3 ">
+                                            <button id="btn_CancelarSGT" type="button" ng-click="showModal()" class=" btn btn-lg btnActionsYellow" style=" min-width: 6rem; " data-dismiss="modal">Cancelar</button>
+                                        </div>
+                                        <div class="form-group col-sm-3 ">
+                                            <button type="submit" name="btn-validate" id="btn_AceptarSGT" class="btn btn-lg btnActionsBlack " style="min-width: 6rem;">
+                                                Aceptar
+                                            </button>
+                                            <div class="status-progress"></div>
+                                        </div>
+                                        <div class="form-group col-sm-3"></div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--@*TOAST´S*@-->
+    <div id="DivtoastAviso_Success" class="toast-container position-fixed bottom-0 end-0 p-xl-4" style="z-index: -10000;">
+        <div id="toastAviso_Success" class="toast nexa-bold-tuatara-80px" role="alert" aria-live="assertive" aria-atomic="true" style="box-shadow: .5rem .5rem 1.5rem #14c829; background-color: #d1ffd0; border-radius: 1rem; min-width: 25rem; margin-bottom: 1.5rem ; margin-right: 1.5rem;">
+            <div class="toast-header" style="background-color: #acffb1; border-top-left-radius:1rem; border-top-right-radius:1rem;">
+                <svg xmlns="http://www.w3.org/2000/svg" height="1.5rem" viewBox="0 0 512 512" style="fill: #14c829; ">
+                    <path d="M256 48a208 208 0 1 1 0 416 208 208 0 1 1 0-416zm0 464A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0l-111 111-47-47c-9.4-9.4-24.6-9.4-33.9 0s-9.4 24.6 0 33.9l64 64c9.4 9.4 24.6 9.4 33.9 0L369 209z" />
+                </svg>
+                <strong id="txtToastHeaderLeft_Success" class="me-auto" style="font-size: 1rem; margin-left: .5rem;"> </strong>
+                <small id="txtToastHeaderRight_Success" style="font-size: .8rem;"></small>
+                <button type="button" class="btn btn-sm btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                <!--@* <button type="button" class="ml-0 mb-0 close" data-bs-dismiss="toast" style="font-size: 1rem;">&times;</button>*@-->
+            </div>
+            <div id="txtToastBody1_Success" class="toast-body" style="font-size: 1.1rem;">
+            </div>
+        </div>
+    </div>
+    <div id="DivtoastAviso_Warning" class="toast-container position-fixed bottom-0 end-0 p-xl-4 " style="z-index: -10000; ">
+        <div id="toastAviso_Warning" class="toast nexa-bold-tuatara-80px" role="alert" aria-live="assertive" aria-atomic="true" style="box-shadow: .5rem .5rem 1.5rem #ffc107; background-color: #fff5d0; border-radius: 1rem; min-width: 25rem; margin-bottom: 1.5rem; margin-right: 1.5rem;">
+            <div class="toast-header" style="background-color: #ffeeac; border-top-left-radius: 1rem; border-top-right-radius: 1rem;">
+                <svg xmlns="http://www.w3.org/2000/svg" height="1.5rem" style="fill: #ffbf00;" viewBox="0 0 16 16">
+                    <path d="M6.95.435c.58-.58 1.52-.58 2.1 0l6.515 6.516c.58.58.58 1.519 0 2.098L9.05 15.565c-.58.58-1.519.58-2.098 0L.435 9.05a1.482 1.482 0 0 1 0-2.098L6.95.435zm1.4.7a.495.495 0 0 0-.7 0L1.134 7.65a.495.495 0 0 0 0 .7l6.516 6.516a.495.495 0 0 0 .7 0l6.516-6.516a.495.495 0 0 0 0-.7L8.35 1.134z" />
+                    <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995z" />
+                </svg>
+                <strong id="txtToastHeaderLeft_Warning" class="me-auto" style="font-size: 1rem; margin-left: .5rem;"> </strong>
+                <small id="txtToastHeaderRight_Warning" style="font-size: .8rem;"></small>
+                <button type="button" class="btn btn-sm btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+            <div id="txtToastBody1_Warning" class="toast-body" style="font-size: 1.1rem;">
+            </div>
+        </div>
+    </div>
+    <div id="DivtoastAviso_Danger" class="toast-container position-fixed bottom-0 end-0 p-xl-4 " style="z-index: -10000;">
+        <div id="toastAviso_Danger" class="toast nexa-bold-tuatara-80px" role="alert" aria-live="assertive" aria-atomic="true" style="box-shadow: .5rem .5rem 1.5rem red; background-color: #ffd0d0; border-radius: 1rem; min-width: 25rem; margin-bottom: 1.5rem; margin-right: 1.5rem; ">
+            <div class="toast-header" style="background-color: #ffacac; border-top-left-radius: 1rem; border-top-right-radius: 1rem;">
+                <svg xmlns="http://www.w3.org/2000/svg" height="1.5rem" style=" fill: red; " viewBox="0 0 512 512">
+                    <path d="M256 48a208 208 0 1 1 0 416 208 208 0 1 1 0-416zm0 464A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM175 175c-9.4 9.4-9.4 24.6 0 33.9l47 47-47 47c-9.4 9.4-9.4 24.6 0 33.9s24.6 9.4 33.9 0l47-47 47 47c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-47-47 47-47c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0l-47 47-47-47c-9.4-9.4-24.6-9.4-33.9 0z" />
+                </svg>
+                <strong id="txtToastHeaderLeft_Danger" class="me-auto" style="font-size: 1rem; margin-left: .5rem;"> </strong>
+                <small id="txtToastHeaderRight_Danger" style="font-size: .8rem;"></small>
+                <button type="button" class="btn btn-sm btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+            <div id="txtToastBody1_Danger" class="toast-body" style="font-size: 1.1rem;">
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
