@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "K6WMQeGhnQ86QHYzWvfRaiYa1GPWToEr7wGc89lsP+Z/hNsfuaGJiHkII7BYJK7T6aJZ4TXt7ViBUGuxcy2EMg==",
+  "dgSpecHash": "NraxjeXl3tdzAb1oZS9LQoz9PEVc4tk0wB1X7hX0YlVfCFvIb4KQjl6sOODTESHFSxTJTpMp8u6gXObO04zb9g==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Admin\\Source\\Repos\\SistemaDeGestionDeTareas\\GestionDeTareas-Front\\GestionDeTareas-Front.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "C:\\Users\\Admin\\source\\repos\\SistemaDeGestionDeTareas\\GestionDeTareas-Front\\GestionDeTareas-Front.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Admin\\.nuget\\packages\\angularjs\\1.8.0\\angularjs.1.8.0.nupkg.sha512"
+  ],
   "logs": []
 }

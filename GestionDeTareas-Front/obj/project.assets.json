@@ -1,11 +1,72 @@
 {
   "version": 3,
   "targets": {
-    "net6.0": {}
+    "net6.0": {
+      "angularjs/1.8.0": {
+        "type": "package"
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "angularjs/1.8.0": {
+      "sha512": "olA5ZnnAM7Qj5oB4/GqzVhsEnkgI/6aV8tTdvNTcjfiwXHcv7V9EDXPAUoUtlVPExvjxjxIerRBHIyVWks6lJQ==",
+      "type": "package",
+      "path": "angularjs/1.8.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "angularjs.1.8.0.nupkg.sha512",
+        "angularjs.nuspec",
+        "content/Scripts/angular-animate.js",
+        "content/Scripts/angular-animate.min.js",
+        "content/Scripts/angular-animate.min.js.map",
+        "content/Scripts/angular-aria.js",
+        "content/Scripts/angular-aria.min.js",
+        "content/Scripts/angular-aria.min.js.map",
+        "content/Scripts/angular-cookies.js",
+        "content/Scripts/angular-cookies.min.js",
+        "content/Scripts/angular-cookies.min.js.map",
+        "content/Scripts/angular-csp.css",
+        "content/Scripts/angular-loader.js",
+        "content/Scripts/angular-loader.min.js",
+        "content/Scripts/angular-loader.min.js.map",
+        "content/Scripts/angular-message-format.js",
+        "content/Scripts/angular-message-format.min.js",
+        "content/Scripts/angular-message-format.min.js.map",
+        "content/Scripts/angular-messages.js",
+        "content/Scripts/angular-messages.min.js",
+        "content/Scripts/angular-messages.min.js.map",
+        "content/Scripts/angular-mocks.js",
+        "content/Scripts/angular-parse-ext.js",
+        "content/Scripts/angular-parse-ext.min.js",
+        "content/Scripts/angular-parse-ext.min.js.map",
+        "content/Scripts/angular-resource.js",
+        "content/Scripts/angular-resource.min.js",
+        "content/Scripts/angular-resource.min.js.map",
+        "content/Scripts/angular-route.js",
+        "content/Scripts/angular-route.min.js",
+        "content/Scripts/angular-route.min.js.map",
+        "content/Scripts/angular-sanitize.js",
+        "content/Scripts/angular-sanitize.min.js",
+        "content/Scripts/angular-sanitize.min.js.map",
+        "content/Scripts/angular-touch.js",
+        "content/Scripts/angular-touch.min.js",
+        "content/Scripts/angular-touch.min.js.map",
+        "content/Scripts/angular.js",
+        "content/Scripts/angular.min.js",
+        "content/Scripts/angular.min.js.map",
+        "content/Scripts/errors.json",
+        "content/Scripts/i18n/_._",
+        "content/Scripts/sitemap.xml",
+        "content/Scripts/test-bundles/_._",
+        "content/Scripts/version.json"
+      ]
+    }
+  },
   "projectFileDependencyGroups": {
-    "net6.0": []
+    "net6.0": [
+      "AngularJS >= 1.8.0"
+    ]
   },
   "packageFolders": {
     "C:\\Users\\Admin\\.nuget\\packages\\": {},
@@ -56,6 +117,12 @@
     "frameworks": {
       "net6.0": {
         "targetAlias": "net6.0",
+        "dependencies": {
+          "AngularJS": {
+            "target": "Package",
+            "version": "[1.8.0, )"
+          }
+        },
         "imports": [
           "net461",
           "net462",
