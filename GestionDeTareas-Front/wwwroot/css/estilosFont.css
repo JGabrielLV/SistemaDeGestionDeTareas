@@ -92,7 +92,7 @@
     font-style: normal;
     font-weight: 700;
     margin-top: 1rem;
-    color: #8c8c8c;
+    color: #8c8c8c  !important;
 }
 
 .montserrat-bold-stack-17px {

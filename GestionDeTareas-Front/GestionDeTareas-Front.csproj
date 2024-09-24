@@ -7,11 +7,18 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="wwwroot\appAnjularJS\app\css\" />
+    <Compile Remove="wwwroot\appAnjularJS\**" />
+    <Content Remove="wwwroot\appAnjularJS\**" />
+    <EmbeddedResource Remove="wwwroot\appAnjularJS\**" />
+    <None Remove="wwwroot\appAnjularJS\**" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="AngularJS" Version="1.8.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\appAngularJS\app\css\" />
   </ItemGroup>
 
 </Project>

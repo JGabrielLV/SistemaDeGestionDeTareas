@@ -16,7 +16,7 @@ namespace GestionDeTareas.Front.Controllers
         public IActionResult Index()
         {
             //return View();
-            return Redirect("/appAnjularJS/app/Vistas/Index.html");
+            return Redirect("/appAngularJS/app/Vistas/Index.html");
         }
 
         public IActionResult Privacy()

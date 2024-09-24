@@ -139,7 +139,7 @@ function initTableLConsListaTareas(idTab, countFilasTab) {
             "sInfoPostFix": "",
             "sSearch": "",
             "sUrl": "",
-            "sInfoThousands": ",",
+            "sInfoThousands": "",
             "searchPlaceholder": "Buscar",
             "sLoadingRecords": "Cargando...",
             "oPaginate": {
@@ -154,11 +154,48 @@ function initTableLConsListaTareas(idTab, countFilasTab) {
             }*/
         },
         "responsive": false,
-        "columnDefs": [
+        "columnDefs": [            
             //{ "className": "text-center details-control", "targets": [0], visible: true }, //// details-control = CLASE QUE ACTIVA DETALLE O HIJOS DE FILAS
             { "className": "text-center ", "targets": '_all', visible: true }, //// SE VISUALIZAN TODAS LAS COLUMNAS
             { "className": "text-center ", "targets": [0, 1], visible: false }////  visible: true = SE VISUALIZAN N CANTIDAD DE COLUMNAS, visible: false = NO SE VISUALIZAN N CANTIDAD DE COLUMNAS, EJEMPLO 2 COLUMNAS NO VISIBLES           
         ],
+        //"columns": [
+        //    {
+        //        data: [0],
+        //        render: function (data, type, row, meta) {
+        //            return type === 'display'
+        //                ? '<progress value="' + data + '" max="99"></progress>'
+        //                : data;
+        //        }
+        //    },
+        //    {
+        //        data: [1]               
+        //    },
+        //    {
+        //        data: [2]   
+        //    },
+        //    {
+        //        data: [3],
+        //        render: function (data, type) {
+        //            var result = '<svg  xmlns="http://www.w3.org/2000/svg" height="1.4rem" viewBox="0 0 512 512" style="fill: green;">' +
+        //                '<path d = "M256 48a208 208 0 1 1 0 416 208 208 0 1 1 0-416zm0 464A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0l-111 111-47-47c-9.4-9.4-24.6-9.4-33.9 0s-9.4 24.6 0 33.9l64 64c9.4 9.4 24.6 9.4 33.9 0L369 209z" />' +
+        //                '</svg> ';
+        //            if (!data) {
+        //                result = '<svg xmlns="http://www.w3.org/2000/svg" height="1.4rem" viewBox="0 0 512 512" style="fill: red;">'+
+        //                    '<path d = "M256 48a208 208 0 1 1 0 416 208 208 0 1 1 0-416zm0 464A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM175 175c-9.4 9.4-9.4 24.6 0 33.9l47 47-47 47c-9.4 9.4-9.4 24.6 0 33.9s24.6 9.4 33.9 0l47-47 47 47c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-47-47 47-47c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0l-47 47-47-47c-9.4-9.4-24.6-9.4-33.9 0z" /> '+
+        //                           ' </svg> ';
+        //            }
+
+        //            return result;
+        //        }
+        //    },
+        //    {
+        //        data: [4]   
+        //    },
+        //    {
+        //        data: [5]
+        //    }
+        //],
         "bDestroy": true,
         "dom": '<lf<t><"col-lg-12 col-md-12 col-sm-12"i>p>'
     });
